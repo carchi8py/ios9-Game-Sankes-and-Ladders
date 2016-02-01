@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "271251C21C5EDAA7001975B6"
+               BuildableName = "SnakesAndLadders.app"
+               BlueprintName = "SnakesAndLadders"
+               ReferencedContainer = "container:SnakesAndLadders.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "271251DA1C5EDAA7001975B6"
+               BuildableName = "SnakesAndLaddersTests.xctest"
+               BlueprintName = "SnakesAndLaddersTests"
+               ReferencedContainer = "container:SnakesAndLadders.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "271251E51C5EDAA7001975B6"
+               BuildableName = "SnakesAndLaddersUITests.xctest"
+               BlueprintName = "SnakesAndLaddersUITests"
+               ReferencedContainer = "container:SnakesAndLadders.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "271251C21C5EDAA7001975B6"
+            BuildableName = "SnakesAndLadders.app"
+            BlueprintName = "SnakesAndLadders"
+            ReferencedContainer = "container:SnakesAndLadders.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "271251C21C5EDAA7001975B6"
+            BuildableName = "SnakesAndLadders.app"
+            BlueprintName = "SnakesAndLadders"
+            ReferencedContainer = "container:SnakesAndLadders.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "271251C21C5EDAA7001975B6"
+            BuildableName = "SnakesAndLadders.app"
+            BlueprintName = "SnakesAndLadders"
+            ReferencedContainer = "container:SnakesAndLadders.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
