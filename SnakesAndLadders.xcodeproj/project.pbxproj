@@ -21,6 +21,8 @@
 		271252001C5EDC4A001975B6 /* gameplaybackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 271251FB1C5EDC4A001975B6 /* gameplaybackground.mp3 */; };
 		271252011C5EDC4A001975B6 /* ladder.caf in Resources */ = {isa = PBXBuildFile; fileRef = 271251FC1C5EDC4A001975B6 /* ladder.caf */; };
 		271252021C5EDC4A001975B6 /* snake.caf in Resources */ = {isa = PBXBuildFile; fileRef = 271251FD1C5EDC4A001975B6 /* snake.caf */; };
+		271252041C5EDD10001975B6 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271252031C5EDD10001975B6 /* TitleScene.swift */; };
+		271252061C5EDD33001975B6 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 271252051C5EDD33001975B6 /* TitleScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		271251FB1C5EDC4A001975B6 /* gameplaybackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplaybackground.mp3; sourceTree = "<group>"; };
 		271251FC1C5EDC4A001975B6 /* ladder.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ladder.caf; sourceTree = "<group>"; };
 		271251FD1C5EDC4A001975B6 /* snake.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snake.caf; sourceTree = "<group>"; };
+		271252031C5EDD10001975B6 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
+		271252051C5EDD33001975B6 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				271251D11C5EDAA7001975B6 /* Assets.xcassets */,
 				271251D31C5EDAA7001975B6 /* LaunchScreen.storyboard */,
 				271251D61C5EDAA7001975B6 /* Info.plist */,
+				271252031C5EDD10001975B6 /* TitleScene.swift */,
+				271252051C5EDD33001975B6 /* TitleScene.sks */,
 			);
 			path = SnakesAndLadders;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 				271252001C5EDC4A001975B6 /* gameplaybackground.mp3 in Resources */,
 				271252021C5EDC4A001975B6 /* snake.caf in Resources */,
 				271251C91C5EDAA7001975B6 /* GameScene.sks in Resources */,
+				271252061C5EDD33001975B6 /* TitleScene.sks in Resources */,
 				271251D51C5EDAA7001975B6 /* LaunchScreen.storyboard in Resources */,
 				271251D21C5EDAA7001975B6 /* Assets.xcassets in Resources */,
 				271251FE1C5EDC4A001975B6 /* dice.caf in Resources */,
@@ -295,6 +302,7 @@
 				271251CB1C5EDAA7001975B6 /* GameScene.swift in Sources */,
 				271251CD1C5EDAA7001975B6 /* GameViewController.swift in Sources */,
 				271251C71C5EDAA7001975B6 /* AppDelegate.swift in Sources */,
+				271252041C5EDD10001975B6 /* TitleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
