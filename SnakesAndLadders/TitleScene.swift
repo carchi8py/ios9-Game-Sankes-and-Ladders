@@ -12,6 +12,12 @@ import SpriteKit
 class TitleScene: SKScene {
     
     override func didMoveToView(view: SKView) {
+        
     }
 
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let gameScene = GameScene(fileNamed: "GameScene")
+        let transition = SKTransition.doorwayWithDuration(1.0)
+        self.view?.presentScene(gameScene!, transition: transition)
+    }
 }
