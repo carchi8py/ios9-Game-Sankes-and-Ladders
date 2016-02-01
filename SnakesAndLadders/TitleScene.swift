@@ -10,5 +10,8 @@ import UIKit
 import SpriteKit
 
 class TitleScene: SKScene {
+    
+    override func didMoveToView(view: SKView) {
+    }
 
 }
