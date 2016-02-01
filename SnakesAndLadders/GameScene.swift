@@ -46,10 +46,28 @@ class GameScene: SKScene {
     var backgoundMusic: AVAudioPlayer = AVAudioPlayer()
     var gameOverMusic: AVAudioPlayer = AVAudioPlayer()
     
-    
-    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
+        board = childNodeWithName("board") as! SKSpriteNode
+        player1 = childNodeWithName("player1") as! SKSpriteNode
+        player2 = childNodeWithName("player2") as! SKSpriteNode
+        player1CurrentPositionLabel = childNodeWithName("player1CurrentPositionLabel") as! SKLabelNode
+        player2CurrentPositionLabel = childNodeWithName("player2CurrentPositionLabel") as! SKLabelNode
+        
+        player1CurrentPositionLabel.text = "0"
+        player2CurrentPositionLabel.text = "0"
+        
+        statusLabel = childNodeWithName("statusLabel") as! SKLabelNode
+        tapLabel = childNodeWithName("tapLabel") as!SKLabelNode
+        
+        statusLabel.text = "Touch to start Game"
+        tapLabel.text = "Tap to roll dice"
+        
+        let fadeOut = SKAction.fadeOutWithDuration(0.3)
+        let fadeIn = SKAction.fadeInWithDuration(0.3)
+        let sequence = SKAction.sequence([fadeOut, fadeIn])
+        let repeatAction = SKAction.repeatActionForever(sequence)
+        tapLabel.runAction(repeatAction)
+        tapLabel.hidden = true
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
