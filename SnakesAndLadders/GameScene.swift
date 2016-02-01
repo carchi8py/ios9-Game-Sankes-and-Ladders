@@ -68,6 +68,39 @@ class GameScene: SKScene {
         let repeatAction = SKAction.repeatActionForever(sequence)
         tapLabel.runAction(repeatAction)
         tapLabel.hidden = true
+        
+        setupSounds()
+        
+        backgoundMusic.play()
+    }
+    
+    func setupSounds() {
+        let url: NSURL = NSBundle.mainBundle().URLForResource("gameplaybackground", withExtension: "mp3")!
+        
+        do {
+            backgoundMusic = try AVAudioPlayer(contentsOfURL: url)
+        } catch _ {
+            print("Error Loading Background Msuic")
+        }
+        
+        backgoundMusic.numberOfLoops = -1
+        backgoundMusic.prepareToPlay()
+        
+        let urlGameOver: NSURL = NSBundle.mainBundle().URLForResource("GameOver", withExtension: "mp3")!
+        
+        do {
+            gameOverMusic = try AVAudioPlayer(contentsOfURL: urlGameOver)
+        } catch _ {
+            print("Error Loading Background Msuic")
+        }
+        
+        gameOverMusic.numberOfLoops = 1
+        gameOverMusic.prepareToPlay()
+        
+        diceSFX = SKAction.playSoundFileNamed("dice.caf", waitForCompletion: false)
+        snakeSFX = SKAction.playSoundFileNamed("snake.caf", waitForCompletion: false)
+        ladderSFX = SKAction.playSoundFileNamed("ladder.caf", waitForCompletion: false)
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
