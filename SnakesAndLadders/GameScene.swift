@@ -72,6 +72,8 @@ class GameScene: SKScene {
         setupSounds()
         
         backgoundMusic.play()
+        move(player: 1, position: 24)
+        move(player: 2, position: 85)
     }
     
     // Check when a player lander on ladder or snake
@@ -86,6 +88,76 @@ class GameScene: SKScene {
             break
         }
         return returnValue
+    }
+    
+    // Move the players to a positions (1 = You, 2 = Computer)
+    func move(player player: Int, position: Float) {
+        let row: Int = Int(ceil(position / 10.0))
+        var col: Int  = 0
+        
+        if row  % 2 != 0 {
+            if position > 10 {
+                col = Int(position) - (row-1) * 10
+            } else {
+                col = Int(position)
+            }
+        } else {
+            let colPos: Int = Int(position) - ((row - 1) * 10)
+            
+            switch(colPos) {
+            case 1:
+                col = 10
+                break
+            case 2:
+                col = 9
+                break
+            case 3:
+                col = 8
+                break
+            case 4:
+                col = 7
+                break
+            case 5:
+                col = 6
+                break
+            case 6:
+                col = 5
+                break
+            case 7:
+                col = 4
+                break
+            case 8:
+                col = 3
+                break
+            case 9:
+                col = 2
+                break
+            case 10:
+                col = 1
+                break
+            default:
+                break
+            }
+        }
+        
+        let colMinus: Float = Float(col - 1)
+        let rowMinus: Float = Float(row - 1)
+        
+        let cellWidth: Float = Float(board.frame.width / 10.0)
+        let xOffset = board.position.x
+        let yOffset = board.position.y
+        
+        let x: Float = Float(xOffset) + colMinus * cellWidth + cellWidth/2
+        let y: Float = Float(yOffset) + rowMinus * cellWidth + cellWidth/2
+        
+        if player == 1{
+            let moveTo = SKAction.moveTo(CGPointMake(CGFloat(x), CGFloat(y)), duration: 1.0)
+            player1.runAction(moveTo)
+            
+        } else {
+            let moveTo = SKAction.moveTo(CGPointMake(CGFloat(x), CGFloat(y)), duration: 1.0)
+            player2.runAction(moveTo)
+        }
     }
 
     //finding a new position when hit == true
