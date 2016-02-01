@@ -16,6 +16,11 @@
 		271251D51C5EDAA7001975B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271251D31C5EDAA7001975B6 /* LaunchScreen.storyboard */; };
 		271251E01C5EDAA7001975B6 /* SnakesAndLaddersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271251DF1C5EDAA7001975B6 /* SnakesAndLaddersTests.swift */; };
 		271251EB1C5EDAA7001975B6 /* SnakesAndLaddersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271251EA1C5EDAA7001975B6 /* SnakesAndLaddersUITests.swift */; };
+		271251FE1C5EDC4A001975B6 /* dice.caf in Resources */ = {isa = PBXBuildFile; fileRef = 271251F91C5EDC4A001975B6 /* dice.caf */; };
+		271251FF1C5EDC4A001975B6 /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 271251FA1C5EDC4A001975B6 /* GameOver.mp3 */; };
+		271252001C5EDC4A001975B6 /* gameplaybackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 271251FB1C5EDC4A001975B6 /* gameplaybackground.mp3 */; };
+		271252011C5EDC4A001975B6 /* ladder.caf in Resources */ = {isa = PBXBuildFile; fileRef = 271251FC1C5EDC4A001975B6 /* ladder.caf */; };
+		271252021C5EDC4A001975B6 /* snake.caf in Resources */ = {isa = PBXBuildFile; fileRef = 271251FD1C5EDC4A001975B6 /* snake.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		271251E61C5EDAA7001975B6 /* SnakesAndLaddersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnakesAndLaddersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		271251EA1C5EDAA7001975B6 /* SnakesAndLaddersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakesAndLaddersUITests.swift; sourceTree = "<group>"; };
 		271251EC1C5EDAA7001975B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		271251F91C5EDC4A001975B6 /* dice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dice.caf; sourceTree = "<group>"; };
+		271251FA1C5EDC4A001975B6 /* GameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOver.mp3; sourceTree = "<group>"; };
+		271251FB1C5EDC4A001975B6 /* gameplaybackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplaybackground.mp3; sourceTree = "<group>"; };
+		271251FC1C5EDC4A001975B6 /* ladder.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ladder.caf; sourceTree = "<group>"; };
+		271251FD1C5EDC4A001975B6 /* snake.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snake.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,7 @@
 		271251C51C5EDAA7001975B6 /* SnakesAndLadders */ = {
 			isa = PBXGroup;
 			children = (
+				271251F81C5EDBF8001975B6 /* Sounds */,
 				271251C61C5EDAA7001975B6 /* AppDelegate.swift */,
 				271251C81C5EDAA7001975B6 /* GameScene.sks */,
 				271251CA1C5EDAA7001975B6 /* GameScene.swift */,
@@ -129,6 +140,18 @@
 				271251EC1C5EDAA7001975B6 /* Info.plist */,
 			);
 			path = SnakesAndLaddersUITests;
+			sourceTree = "<group>";
+		};
+		271251F81C5EDBF8001975B6 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				271251F91C5EDC4A001975B6 /* dice.caf */,
+				271251FA1C5EDC4A001975B6 /* GameOver.mp3 */,
+				271251FB1C5EDC4A001975B6 /* gameplaybackground.mp3 */,
+				271251FC1C5EDC4A001975B6 /* ladder.caf */,
+				271251FD1C5EDC4A001975B6 /* snake.caf */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +259,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				271252001C5EDC4A001975B6 /* gameplaybackground.mp3 in Resources */,
+				271252021C5EDC4A001975B6 /* snake.caf in Resources */,
 				271251C91C5EDAA7001975B6 /* GameScene.sks in Resources */,
 				271251D51C5EDAA7001975B6 /* LaunchScreen.storyboard in Resources */,
 				271251D21C5EDAA7001975B6 /* Assets.xcassets in Resources */,
+				271251FE1C5EDC4A001975B6 /* dice.caf in Resources */,
+				271251FF1C5EDC4A001975B6 /* GameOver.mp3 in Resources */,
+				271252011C5EDC4A001975B6 /* ladder.caf in Resources */,
 				271251D01C5EDAA7001975B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
