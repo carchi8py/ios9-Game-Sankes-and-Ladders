@@ -249,6 +249,75 @@ class GameScene: SKScene {
         
     }
     
+    func gameIsOver(player player: Int) {
+        tapLabel.hidden = true
+        gameOverMusic.play()
+        gameOver = true
+        gamePlayInProgrss = true
+        
+        let gameOverLabel = SKLabelNode(fontNamed: "Arial Black")
+        if player == 1 {
+            gameOverLabel.text = "You Won"
+        } else {
+            gameOverLabel.text = "Computer Won"
+        }
+        gameOverLabel.fontSize = 45
+        gameOverLabel.fontColor = SKColor.blueColor()
+        gameOverLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        self.addChild(gameOverLabel)
+        
+        let scaleUp = SKAction.scaleTo(1.2, duration: 1.0)
+        let scaleDown = SKAction.scaleTo(1.0, duration: 0.2)
+        let sequence = SKAction.sequence([scaleUp, scaleDown])
+        gameOverLabel.runAction(sequence, completion: { () -> Void in
+            let label = SKLabelNode(fontNamed: "Chalkduster")
+            label.position = CGPointMake(CGRectGetMidX(self.frame), 100)
+            label.text = "Touch to restart"
+            label.fontSize = 20
+            label.fontColor = SKColor.greenColor()
+            
+            self.addChild(label)
+            
+            let fadeOut = SKAction.fadeOutWithDuration(0.3)
+            let fadeIn = SKAction.fadeInWithDuration(0.3)
+            let sequence = SKAction.sequence([fadeOut, fadeIn])
+            let repeatAction = SKAction.repeatActionForever(sequence)
+            
+            label.runAction(repeatAction)
+        })
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("SnakeGame") == nil {
+            NSUserDefaults.standardUserDefaults().setObject("1", forKey: "SnakeGame")
+            if player == 1 {
+                NSUserDefaults.standardUserDefaults().setObject("0", forKey: "SnakeGameComp")
+                NSUserDefaults.standardUserDefaults().setObject("1", forKey: "SnakeGameUser")
+            } else {
+                NSUserDefaults.standardUserDefaults().setObject("1", forKey: "SnakeGameComp")
+                NSUserDefaults.standardUserDefaults().setObject("0", forKey: "SnakeGameUser")
+            }
+            NSUserDefaults.standardUserDefaults().synchronize()
+        } else {
+            let totalgames: String = NSUserDefaults.standardUserDefaults().valueForKey("SnakeGame") as! String
+            var totalgame: Int? = Int(totalgames)
+            totalgame = totalgame! + 1
+            
+            NSUserDefaults.standardUserDefaults().setValue("\(totalgame!)", forKey: "SnakeGame")
+            if player == 1 {
+                let usergames: String = NSUserDefaults.standardUserDefaults().valueForKey("SnakeGameUser") as! String
+                var usergame: Int? = Int(usergames)
+                usergame = usergame! + 1
+                NSUserDefaults.standardUserDefaults().setValue("\(usergame)", forKey: "SnakeGameUser")
+            } else {
+                let compgames: String = NSUserDefaults.standardUserDefaults().valueForKey("SnakeGameComp") as! String
+                var compgame: Int? = Int(compgames)
+                compgame = compgame! + 1
+                NSUserDefaults.standardUserDefaults().setValue("\(compgame)", forKey: "SnakeGameComp")
+            }
+            
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    
     func startGame() {
         let turn = arc4random() % 2 + 1
         switch(turn) {
