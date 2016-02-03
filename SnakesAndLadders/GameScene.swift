@@ -72,8 +72,6 @@ class GameScene: SKScene {
         setupSounds()
         
         backgoundMusic.play()
-        move(player: 1, position: 24)
-        move(player: 2, position: 85)
     }
     
     // Check when a player lander on ladder or snake
@@ -249,6 +247,33 @@ class GameScene: SKScene {
         snakeSFX = SKAction.playSoundFileNamed("snake.caf", waitForCompletion: false)
         ladderSFX = SKAction.playSoundFileNamed("ladder.caf", waitForCompletion: false)
         
+    }
+    
+    func startGame() {
+        let turn = arc4random() % 2 + 1
+        switch(turn) {
+        case 1:
+            statusLabel.text = "Your Turn"
+            player1Turn = true
+            tapLabel.hidden = false
+            break
+        case 2:
+            statusLabel.text = "Computer Turn"
+            player1Turn = false
+            moveFinished = false
+            rollDice(player: 2)
+            break
+        default :
+            break
+        }
+        
+        gamePlayInProgrss = true
+        gameOver = false
+    }
+    
+    func restart() {
+        let scene = TitleScene(fileNamed: "TitleScene")
+        self.view?.presentScene(scene)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
