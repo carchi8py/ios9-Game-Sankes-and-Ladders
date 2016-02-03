@@ -469,6 +469,20 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
+        if gameOver == true {
+            restart()
+            return
+        }
+        
+        if gamePlayInProgrss == true {
+            if (player1Turn == true && rolling == false && moveFinished == true) {
+                moveFinished = false
+                rollDice(player: 1)
+                tapLabel.hidden = true
+            }
+        } else {
+            startGame()
+        }
         
     }
    
