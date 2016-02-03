@@ -271,6 +271,67 @@ class GameScene: SKScene {
         gameOver = false
     }
     
+    func rollDice(player player: Int) {
+        if gameOver == false {
+            rolling = true
+            self.enumerateChildNodesWithName("dice", usingBlock: { (diceNode: SKNode, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+                diceNode.removeFromParent()
+            })
+            
+            var diceImages = [SKTexture]()
+            for var i = 0; i < 10; i++ {
+                let imageNum = arc4random() % 6 + 1
+                let imageName = "dice\(imageNum)"
+                let diceRolled = SKTexture(imageNamed: imageName)
+                diceImages.append(diceRolled)
+                rolledDice = Int(imageNum)
+            }
+            
+            let dice = SKSpriteNode(imageNamed: "dice1")
+            if self.player1Turn == true {
+                dice.position = CGPointMake(65, 380)
+            } else {
+                dice.position = CGPointMake(955, 380)
+            }
+            dice.name = "dice"
+            self.addChild(dice)
+            let diceAnimation = SKAction.animateWithTextures(diceImages, timePerFrame: 0.2)
+            self.runAction(diceSFX)
+            
+            dice.runAction(diceAnimation, completion: { () -> Void in
+                if self.player1Turn == true {
+                    if (self.player1CurrentPosition + self.rolledDice) <= 100 {
+                        let pos = Float(self.player1CurrentPosition + self.rolledDice)
+                        self.move(player: 1, position: pos)
+                        self.player1CurrentPosition += self.rolledDice
+                    } else {
+                        self.moveFinished = true
+                        self.player1Turn = false
+                        self.statusLabel.text = "Computer's Turn"
+                        
+                        let delay = SKAction.waitForDuration(1.0)
+                        self.runAction(delay, completion: { () -> Void in
+                            
+                            self.moveFinished = false
+                            self.rollDice(player: 2)
+                        })
+                    }
+                } else {
+                    if (self.player2CurrentPosition + self.rolledDice) <= 100 {
+                        let pos = Float(self.player2CurrentPosition + self.rolledDice)
+                        self.move(player: 2, position: pos)
+                        self.player2CurrentPosition += self.rolledDice
+                    } else {
+                        self.moveFinished = true
+                        self.player1Turn = true
+                        self.statusLabel.text = "Your Turn"
+                    }
+                }
+                self.rolling = false
+            })
+        }
+    }
+    
     func restart() {
         let scene = TitleScene(fileNamed: "TitleScene")
         self.view?.presentScene(scene)
