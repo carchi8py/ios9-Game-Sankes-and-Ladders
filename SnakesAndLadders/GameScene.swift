@@ -150,11 +150,72 @@ class GameScene: SKScene {
         
         if player == 1{
             let moveTo = SKAction.moveTo(CGPointMake(CGFloat(x), CGFloat(y)), duration: 1.0)
-            player1.runAction(moveTo)
+            player1.runAction(moveTo, completion: { () -> Void in
+                self.player1CurrentPositionLabel.text = "\(Int(position))"
+                
+                if self.checkHit(currentPosition: self.player1CurrentPosition) == true {
+                    switch(self.player1CurrentPosition) {
+                    case 7, 20, 28, 38, 42, 51, 62, 71, 86:
+                        self.runAction(self.ladderSFX)
+                    default:
+                        self.runAction(self.snakeSFX)
+                    }
+                    
+                    self.move(player: 1, position: self.snakesAndLadders(currentPosition: self.player1CurrentPosition))
+                    self.player1CurrentPosition = Int(self.snakesAndLadders(currentPosition: self.player1CurrentPosition))
+                    return
+                }
+                
+                if self.player1CurrentPosition == 100 {
+                    self.gameIsOver(player: 1)
+                    return
+                }
+                
+                self.moveFinished = true
+                self.player1Turn = false
+                self.statusLabel.text = "Computer's Turn"
+                
+                let dice0 = self.childNodeWithName("dice")
+                dice0?.removeFromParent()
+                
+                let delay = SKAction.waitForDuration(1.0)
+                self.runAction(delay, completion: { () -> Void in
+                    self.moveFinished = false
+                    self.rollDice(player: 2)
+                })
+            })
             
         } else {
             let moveTo = SKAction.moveTo(CGPointMake(CGFloat(x), CGFloat(y)), duration: 1.0)
-            player2.runAction(moveTo)
+            player2.runAction(moveTo, completion: { () -> Void in
+                self.player2CurrentPositionLabel.text = "\(Int(position))"
+                
+                if self.checkHit(currentPosition: self.player2CurrentPosition) == true {
+                    switch(self.player2CurrentPosition) {
+                    case 7, 20, 28, 38, 42, 51, 62, 71, 86:
+                        self.runAction(self.ladderSFX)
+                    default:
+                        self.runAction(self.snakeSFX)
+                    }
+                    
+                    self.move(player: 2, position: self.snakesAndLadders(currentPosition: self.player2CurrentPosition))
+                    self.player2CurrentPosition = Int(self.snakesAndLadders(currentPosition: self.player2CurrentPosition))
+                    return
+                }
+                
+                if self.player2CurrentPosition == 100 {
+                    self.gameIsOver(player: 2)
+                    return
+                }
+                
+                self.moveFinished = true
+                self.player1Turn = true
+                self.statusLabel.text = "Your Turn"
+                self.tapLabel.hidden = false
+                
+                let dice0 = self.childNodeWithName("dice")
+                dice0?.removeFromParent()
+            })
         }
     }
 
